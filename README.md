@@ -5,6 +5,7 @@ cursorul staționează aproximativ 300 ms pe butonul **Maximize** al ferestrei a
 cu șase modele de aranjare. Un click pe o zonă mută fereastra exact în acea zonă, fără scurtături de
 tastatură și fără FancyZones.
 
+[![build](https://github.com/rutra20/SnapLayouts10/actions/workflows/build.yml/badge.svg)](https://github.com/rutra20/SnapLayouts10/actions/workflows/build.yml)
 ![Windows 10](https://img.shields.io/badge/Windows-10%20x64-0078D4)
 ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-512BD4)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -24,12 +25,12 @@ tastatură și fără FancyZones.
 
 ## Descărcare
 
-Descărcați ultima versiune din secțiunea **Releases** a repository-ului GitHub:
+Ultima versiune: **[Releases](https://github.com/rutra20/SnapLayouts10/releases/latest)**
 
-- `SnapLayouts10.exe` — aplicația portabilă;
-- `SnapLayouts10-1.3.0-portable.zip` — exe + documentație;
-- `SnapLayouts10-1.3.0-source.zip` — codul sursă complet;
-- `SHA256SUMS.txt` — verificare integritate.
+- [SnapLayouts10.exe](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SnapLayouts10.exe) — aplicația portabilă;
+- [SnapLayouts10-1.3.0-portable.zip](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SnapLayouts10-1.3.0-portable.zip) — exe + documentație;
+- [SnapLayouts10-1.3.0-source.zip](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SnapLayouts10-1.3.0-source.zip) — codul sursă complet;
+- [SHA256SUMS.txt](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SHA256SUMS.txt) — verificare integritate.
 
 În arhiva locală de dezvoltare, executabilul se află în `dist/`.
 

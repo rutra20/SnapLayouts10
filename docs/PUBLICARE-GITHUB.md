@@ -1,5 +1,7 @@
 # Publicare pe GitHub
 
+Repository publicat: <https://github.com/rutra20/SnapLayouts10>
+
 Ghid practic pentru publicarea proiectului. Pe mașina de dezvoltare Git nu era instalat; prima
 secțiune acoperă instalarea.
 
