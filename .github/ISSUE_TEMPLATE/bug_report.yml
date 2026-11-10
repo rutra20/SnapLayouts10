@@ -1,0 +1,81 @@
+name: Raport de eroare
+description: Raportează o funcționare incorectă sau un crash.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Mulțumesc pentru raport. Nu include parole, adrese, titluri de documente sau alte date
+        personale. Jurnalul poate conține titluri de ferestre — anonimizează-le înainte de atașare.
+  - type: input
+    id: version
+    attributes:
+      label: Versiunea SnapLayouts 10
+      description: Apare în System Tray → Despre, sau în numele arhivei.
+      placeholder: "1.3.0"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Versiunea Windows
+      description: Win+R → winver. Include ediția și build-ul.
+      placeholder: "Windows 10 IoT Enterprise 22H2, build 19045.6456"
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: Aplicația din care pornește hover-ul
+      placeholder: "Notepad, Chrome, Explorer..."
+    validations:
+      required: true
+  - type: dropdown
+    id: state
+    attributes:
+      label: Starea ferestrei
+      options:
+        - Restaurată (buton Maximize)
+        - Maximizată (buton Restore Down)
+        - Ambele
+        - Nu se aplică
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pași de reproducere
+      placeholder: |
+        1. Deschide ...
+        2. Ține cursorul pe ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamentul așteptat
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamentul real
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Jurnal / capturi (opțional)
+      description: Din %APPDATA%\SnapLayouts10\snap.log. Elimină titlurile sensibile.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Verificări
+      options:
+        - label: Am verificat că folosesc ultima versiune.
+          required: true
+        - label: Am eliminat datele personale din jurnal/capturi.
+          required: true

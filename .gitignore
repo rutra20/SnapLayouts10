@@ -1,0 +1,35 @@
+# Build outputs
+dist/
+bin/
+obj/
+*.pdb
+*.exe
+*.dll
+*.zip
+
+# Test / diagnostic artifacts
+test-*.png
+crop-*.png
+*.log
+snap.log
+snap.old.log
+settings.ini
+
+# Visual Studio / Rider
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+
+# OS metadata
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Local settings and secrets
+.env
+*.secret
+*.pfx
+*.cer

@@ -1,0 +1,40 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        shell: powershell
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
+
+      - name: Geometry tests
+        shell: powershell
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\test-geometry.ps1
+
+      - name: Package
+        shell: powershell
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\package.ps1 -SkipBuild
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: snap-layouts-10
+          if-no-files-found: error
+          path: |
+            dist/SnapLayouts10.exe
+            dist/SnapLayouts10-*-portable.zip
+            dist/SnapLayouts10-*-source.zip
+            dist/SHA256SUMS.txt

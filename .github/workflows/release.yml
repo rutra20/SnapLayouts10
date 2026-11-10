@@ -1,0 +1,39 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        shell: powershell
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
+
+      - name: Geometry tests
+        shell: powershell
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\test-geometry.ps1
+
+      - name: Package
+        shell: powershell
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\package.ps1 -SkipBuild
+
+      - name: Publish GitHub Release
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $assets = @(Get-ChildItem .\dist -File |
+            Where-Object { $_.Name -like 'SnapLayouts10-*' -or $_.Name -eq 'SHA256SUMS.txt' } |
+            ForEach-Object { $_.FullName })
+          gh release create $tag @assets --title "SnapLayouts 10 $tag" --generate-notes

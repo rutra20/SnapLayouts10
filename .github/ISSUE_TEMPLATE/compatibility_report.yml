@@ -1,0 +1,53 @@
+name: Raport de compatibilitate
+description: Spune dacă un anumit program funcționează sau nu cu SnapLayouts 10.
+title: "[Compatibilitate]: "
+labels: ["compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Completează tabelul din docs/COMPATIBILITATE.md pe baza experienței tale.
+  - type: input
+    id: app
+    attributes:
+      label: Aplicația și versiunea
+      placeholder: "Google Chrome 142, Visual Studio Code 1.95..."
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Windows
+      placeholder: "Windows 10 22H2, build 19045.6456, x64"
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Rezultat
+      options:
+        - Funcționează complet
+        - Meniul apare, dar ancorarea e greșită
+        - Meniul nu apare
+        - Aplicația crash-uiește sau îngheață
+    validations:
+      required: true
+  - type: input
+    id: state
+    attributes:
+      label: Starea ferestrei
+      placeholder: "Restaurată / maximizată / ambele"
+  - type: textarea
+    id: details
+    attributes:
+      label: Detalii
+      description: Comportament, limitări, pași de reproducere.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Confidențialitate
+      options:
+        - label: Nu am inclus date personale sau capturi cu conținut sensibil.
+          required: true
