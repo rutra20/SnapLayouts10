@@ -79,7 +79,7 @@ namespace SnapLayouts10
             }
             catch (Exception ex)
             {
-                Log.Error("Nu am putut citi setările; folosesc valorile implicite.", ex);
+                Log.Error("Failed to read settings; using defaults.", ex);
             }
             return settings;
         }
@@ -89,7 +89,7 @@ namespace SnapLayouts10
             try
             {
                 StringBuilder builder = new StringBuilder();
-                builder.AppendLine("# SnapLayouts 10 - setări");
+                builder.AppendLine("# SnapLayouts 10 - settings");
                 builder.AppendLine("enabled=" + (Enabled ? "1" : "0"));
                 builder.AppendLine("hoverdelayms=" + HoverDelayMs.ToString(CultureInfo.InvariantCulture));
                 builder.AppendLine("gap=" + Gap.ToString(CultureInfo.InvariantCulture));
@@ -115,7 +115,7 @@ namespace SnapLayouts10
             }
             catch (Exception ex)
             {
-                Log.Error("Nu am putut salva setările.", ex);
+                Log.Error("Failed to save settings.", ex);
             }
         }
 

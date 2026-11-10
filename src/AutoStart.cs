@@ -47,7 +47,7 @@ namespace SnapLayouts10
             }
             catch (Exception ex)
             {
-                Log.Error("Nu am putut modifica pornirea automată.", ex);
+                Log.Error("Failed to update startup settings.", ex);
                 return false;
             }
         }

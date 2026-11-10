@@ -1,14 +1,14 @@
-# Cod de conduită
+# Code of Conduct
 
-Acest proiect adoptă principiile [Contributor Covenant 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
+This project follows the principles of the
+[Contributor Covenant 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 
-## Pe scurt
+## In short
 
-- Fii respectuos și constructiv.
-- Critică ideile, nu persoanele.
-- Nu tolera hărțuirea, limbajul discriminatoriu sau atacurile personale.
-- Nu publica date personale ale altor utilizatori.
-- Raportează problemele de comportament în privat către mentenitor.
+- Be respectful and constructive.
+- Critique ideas, not people.
+- No harassment, discriminatory language, or personal attacks.
+- Do not publish other people's personal data.
+- Report conduct problems privately to the maintainer.
 
-Mentenitorul poate elimina comentarii, închide issue-uri sau bloca participanți care încalcă aceste
-reguli.
+The maintainer may remove comments, close issues, or block participants who violate these rules.

@@ -1,41 +1,39 @@
-# Securitate
+# Security
 
-## Versiuni acceptate
+## Supported versions
 
-| Versiune | Suport |
-|----------|--------|
-| 1.3.x | da |
-| < 1.3 | nu |
+| Version | Supported |
+|---------|-----------|
+| 1.4.x | yes |
+| < 1.4 | no |
 
-## Cum raportezi o vulnerabilitate
+## Reporting a vulnerability
 
-Nu deschide un issue public pentru probleme de securitate. Folosește
-**GitHub Security Advisories** din repository (Security → Report a vulnerability) sau contactează
-mentenitorul prin profilul GitHub.
+Do not open a public issue for security problems. Use **GitHub Security Advisories** in this
+repository (Security → Report a vulnerability) or contact the maintainer through the GitHub profile.
 
-Include:
+Please include:
 
-- versiunea SnapLayouts 10 și build-ul Windows;
-- pașii de reproducere;
-- impactul estimat;
-- dacă este nevoie, un proof of concept fără date personale.
+- SnapLayouts 10 version and Windows build;
+- reproduction steps;
+- estimated impact;
+- a proof of concept without personal data, if needed.
 
-## Model de securitate
+## Security model
 
-- Aplicația nu are rețea, telemetrie, auto-update sau servicii.
-- Rulează cu privilegiile utilizatorului curent (`asInvoker`), nu cere administrator.
-- Citește poziția cursorului și trimite `WM_NCHITTEST` către fereastra activă.
-- Mută ferestre prin `SetWindowPos`; nu injectează cod în alte procese.
-- Ferestrele elevate pot refuza mutarea (UIPI); rulați aplicația ca administrator doar dacă aveți
-  nevoie de acest comportament.
+- The app has no network, telemetry, auto-update, or external services.
+- It runs with the current user's privileges (`asInvoker`) and does not require administrator.
+- It reads the pointer position and sends `WM_NCHITTEST` to the foreground window.
+- It moves windows with `SetWindowPos`; it does not inject code into other processes.
+- Elevated windows may refuse to move (UIPI). Run the app as administrator only if required.
 
-## Confidențialitate și jurnale
+## Privacy and logs
 
-`%APPDATA%\SnapLayouts10\snap.log` poate conține titluri de ferestre și nume de clase, dar numai
-când este pornit `--debug` sau la evenimente de ancorare. Înainte de a atașa un jurnal public,
-eliminați titlurile documentelor, numele de utilizator și alte date sensibile.
+`%APPDATA%\SnapLayouts10\snap.log` may contain window titles and class names when `--debug` is
+enabled or during snapping events. Before sharing a log publicly, remove document titles, user
+names, and other sensitive data.
 
-## Binare nesemnate
+## Unsigned binaries
 
-Executabilele publicate nu sunt semnate digital. Windows SmartScreen sau antivirusul pot afișa
-avertismente. Verificați `SHA256SUMS.txt` din release și, dacă doriți, compilați din sursă.
+Release binaries are not code-signed. Windows SmartScreen or antivirus software may warn. Verify
+`SHA256SUMS.txt` from the release and/or build from source.

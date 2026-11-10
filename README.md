@@ -1,9 +1,8 @@
 # SnapLayouts 10
 
-**Snap Layouts neoficial pentru Windows 10.** Aplicația reproduce meniul din Windows 11: când
-cursorul staționează aproximativ 300 ms pe butonul **Maximize** al ferestrei active, apare un meniu
-cu șase modele de aranjare. Un click pe o zonă mută fereastra exact în acea zonă, fără scurtături de
-tastatură și fără FancyZones.
+**Unofficial Snap Layouts for Windows 10.** Hover over a window's **Maximize** button for about
+300 ms and a Windows 11-style menu appears with six layouts. Click a zone to snap the window there —
+no keyboard shortcuts and no FancyZones.
 
 [![build](https://github.com/rutra20/SnapLayouts10/actions/workflows/build.yml/badge.svg)](https://github.com/rutra20/SnapLayouts10/actions/workflows/build.yml)
 ![Windows 10](https://img.shields.io/badge/Windows-10%20x64-0078D4)
@@ -11,97 +10,91 @@ tastatură și fără FancyZones.
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![No telemetry](https://img.shields.io/badge/telemetry-none-success)
 
-> **Proiect neoficial.** Nu este afiliat, sponsorizat sau aprobat de Microsoft. „Windows”,
-> „Snap Layouts” și „Snap Assist” sunt mărci ale Microsoft Corporation. Detalii în
-> [NOTICE.md](NOTICE.md).
+> **Unofficial project.** Not affiliated with, sponsored by, or approved by Microsoft. Windows,
+> Snap Layouts, and Snap Assist are trademarks of Microsoft Corporation. See [NOTICE.md](NOTICE.md).
 
-- Versiune: **1.3.0**
-- Platformă: **Windows 10 22H2 x64**, .NET Framework 4.8
-- Sistem testat: **Windows 10 IoT Enterprise 22H2, build 19045.6456**, Dell, 1920 × 1080, DPI 100%
-- Limbă interfață: română
-- Fără instalare, fără rețea, fără telemetrie
+- Version: **1.4.0**
+- Platform: **Windows 10 22H2 x64**, .NET Framework 4.8
+- Tested on: **Windows 10 IoT Enterprise 22H2, build 19045.6456**, 1920 × 1080, 100% DPI
+- UI language: English
+- Portable: no installer, no network access, no telemetry
 
-![Meniul SnapLayouts 10 afișat la hover pe butonul Maximize](docs/preview-flyout.png)
+![SnapLayouts 10 flyout](docs/preview-flyout.png)
 
-## Descărcare
+## Download
 
-Ultima versiune: **[Releases](https://github.com/rutra20/SnapLayouts10/releases/latest)**
+Latest release: **[GitHub Releases](https://github.com/rutra20/SnapLayouts10/releases/latest)**
 
-- [SnapLayouts10.exe](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SnapLayouts10.exe) — aplicația portabilă;
-- [SnapLayouts10-1.3.0-portable.zip](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SnapLayouts10-1.3.0-portable.zip) — exe + documentație;
-- [SnapLayouts10-1.3.0-source.zip](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SnapLayouts10-1.3.0-source.zip) — codul sursă complet;
-- [SHA256SUMS.txt](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SHA256SUMS.txt) — verificare integritate.
+- [SnapLayouts10.exe](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SnapLayouts10.exe) — portable app
+- [SnapLayouts10-1.4.0-portable.zip](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SnapLayouts10-1.4.0-portable.zip) — app + documentation
+- [SnapLayouts10-1.4.0-source.zip](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SnapLayouts10-1.4.0-source.zip) — full source
+- [SHA256SUMS.txt](https://github.com/rutra20/SnapLayouts10/releases/latest/download/SHA256SUMS.txt) — integrity
 
-În arhiva locală de dezvoltare, executabilul se află în `dist/`.
+## Documentation
 
-## Documentație
-
-| Document | Conținut |
+| Document | Contents |
 |----------|----------|
-| [TESTARE.md](docs/TESTARE.md) | mediu, pași, rezultate, limitări |
-| [COMPATIBILITATE.md](docs/COMPATIBILITATE.md) | aplicații testate și limitări |
-| [ANALIZA-WINDOWS11.md](docs/ANALIZA-WINDOWS11.md) | analiza vizuală Windows 11 și decizii de design |
-| [PUBLICARE-GITHUB.md](docs/PUBLICARE-GITHUB.md) | ghid de publicare și release |
-| [CHANGELOG.md](CHANGELOG.md) | istoric versiuni |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | build, stil, testare, PR |
-| [SECURITY.md](SECURITY.md) | raportare vulnerabilități și confidențialitate |
+| [TESTING.md](docs/TESTING.md) | environment, test steps, results, limitations |
+| [COMPATIBILITY.md](docs/COMPATIBILITY.md) | tested applications and known limitations |
+| [WINDOWS11-DESIGN.md](docs/WINDOWS11-DESIGN.md) | visual analysis of Windows 11 and design decisions |
+| [PUBLISHING-GITHUB.md](docs/PUBLISHING-GITHUB.md) | release and publication guide |
+| [CHANGELOG.md](CHANGELOG.md) | version history |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | build, style, testing, pull requests |
+| [SECURITY.md](SECURITY.md) | vulnerability reporting and privacy |
 
-## Ce face
+## Features
 
-1. Detectează butonul Maximize al ferestrei active folosind `WM_NCHITTEST` (`HTMAXBUTTON`).
-2. Afișează meniul după 300 ms de staționare a cursorului (valoare configurabilă).
-3. Desenează șase machete cu 2, 3 sau 4 zone, în stilul Windows 11.
-4. Evidențiază zona de sub cursor și ancorează fereastra la click.
-5. Ține cont de monitorul pe care se află fereastra, de aria de lucru și de DPI.
-6. Corectează marginile invizibile DWM, astfel încât ferestrele să fie aliniate vizual, cu un spațiu
-   mic între ele.
-7. Deschide **Snap Assist** pentru a completa și celelalte zone cu ferestrele deschise.
-8. Rulează discret în System Tray, cu setări și pornire automată opțională.
+1. Detects the Maximize button with `WM_NCHITTEST` (`HTMAXBUTTON`), without global mouse hooks.
+2. Shows the layout menu after 300 ms of pointer rest (configurable).
+3. Six layouts with 2, 3, or 4 zones, styled after Windows 11.
+4. Highlights the zone under the cursor and snaps on click.
+5. Works with the monitor under the cursor, per-monitor DPI, and physical coordinates.
+6. Compensates for invisible DWM window borders so snapped windows align visually.
+7. Opens a visual **Snap Assist** in the remaining zone with live window previews.
+8. Runs in the system tray with settings and optional automatic startup.
 
-## Modele de aranjare
+## Layouts
 
-| # | Model | Zone |
-|---|-------|------|
-| 1 | 2 coloane egale | 2 |
-| 2 | 2 coloane 70/30 | 2 |
-| 3 | 3 coloane egale | 3 |
-| 4 | Stânga + 2 dreapta | 3 |
-| 5 | 4 cadrane | 4 |
-| 6 | Stânga mare + 3 dreapta | 4 |
+| # | Layout | Zones |
+|---|--------|-------|
+| 1 | 2 equal columns | 2 |
+| 2 | 2 columns 70/30 | 2 |
+| 3 | 3 equal columns | 3 |
+| 4 | Left + 2 right | 3 |
+| 5 | 4 quadrants | 4 |
+| 6 | Large left + 3 right | 4 |
 
-Fiecare machetă are zonele ei active. În setări, modelele pot fi activate sau dezactivate individual.
+Layouts can be enabled or disabled individually in Settings.
 
-## Instalare și pornire
+## Install and run
 
-Aplicația este portabilă și nu are nevoie de instalare.
+1. Copy `SnapLayouts10.exe` to a permanent folder, for example
+   `C:\Users\<user>\AppData\Local\Programs\SnapLayouts10\`.
+2. Run `SnapLayouts10.exe`. The app appears in the system tray.
+3. Right-click the tray icon:
+   - **Snap Layouts: enabled** — toggle detection;
+   - **Start with Windows: yes/no** — manage the `HKCU\...\Run` entry;
+   - **Settings...** — delay, gap, Snap Assist, active layouts;
+   - **About**, **Open data folder**, **Exit**.
+4. Double-click the tray icon to open Settings.
 
-1. Copiați `SnapLayouts10.exe` într-un folder permanent, de exemplu:
-   `C:\Users\<utilizator>\AppData\Local\Programs\SnapLayouts10\`.
-2. Rulați `SnapLayouts10.exe`. Va apărea iconița în System Tray.
-3. Deschideți meniul iconiței cu click dreapta:
-   - **Snap Layouts: activ** — pornește/oprește detectarea;
-   - **Pornește cu Windows: da/nu** — scrie/șterge intrarea din `HKCU\...\Run`;
-   - **Setări...** — întârziere, spațiere, Snap Assist, layout-uri active;
-   - **Despre** și **Deschide folderul de date**.
-4. Dublu-click pe iconiță deschide direct setările.
+Run with `--settings` to open Settings immediately. Run with `--debug` to enable detailed logging.
 
-Pornirea cu parametrul `--settings` deschide setările imediat. Parametrul `--debug` activează
-jurnalul detaliat (util pentru diagnosticare).
+## Usage
 
-## Utilizare
+1. Focus the window you want to snap (Notepad, Explorer, Chrome, etc.).
+2. Rest the pointer on the **Maximize** button for about 300 ms.
+3. Choose a zone in the flyout.
+4. The window moves to that zone. If Snap Assist is enabled, choose another window for the next
+   zone, or press `Esc`.
 
-1. Aduceți în prim-plan fereastra dorită (de exemplu Notepad, Explorer, Chrome).
-2. Duceți cursorul pe butonul **Maximize** (pătratul din dreapta sus) și țineți-l nemișcat ~300 ms.
-3. Alegeți o zonă din machetă.
-4. Fereastra se mută în zona respectivă. Dacă Snap Assist este activ, puteți alege o altă fereastră
-   pentru următoarea zonă; `Esc` anulează sesiunea.
+The flyout closes when the pointer leaves it, when the target loses focus, or when the Maximize
+button is pressed. Hovering the **Restore Down** button of a maximized window works too; the window
+is restored before snapping.
 
-Meniul dispare când cursorul iese din el, când fereastra își pierde focusul sau când se apasă
-butonul Maximize.
+## Settings
 
-## Setări
-
-Fișierul de setări: `%APPDATA%\SnapLayouts10\settings.ini`
+Settings file: `%APPDATA%\SnapLayouts10\settings.ini`
 
 ```ini
 enabled=1
@@ -113,112 +106,97 @@ firstrun=0
 layouts=1,1,1,1,1,1
 ```
 
-- `hoverdelayms` — 200…700 ms din interfață (1000 ms maximum în fișier).
-- `gap` — spațiul dintre ferestre, 0…16 px din interfață.
-- `layouts` — câte un `1`/`0` pentru fiecare dintre cele șase modele.
+- `hoverdelayms` — 200…700 ms in the UI (1000 ms maximum in the file).
+- `gap` — gap between windows, 0…16 px in the UI.
+- `layouts` — one `1`/`0` for each of the six layouts.
 
-Jurnal: `%APPDATA%\SnapLayouts10\snap.log` (rotație automată la 256 KB).
+Log: `%APPDATA%\SnapLayouts10\snap.log` (automatic rotation at 256 KB).
 
-## Cum funcționează
+## How it works
 
-### Detectarea butonului Maximize
+### Maximize button detection
 
-Aplicația rulează un timer de 40 ms. La fiecare tick:
+A 40 ms timer:
 
-1. citește poziția cursorului (`GetCursorPos`);
-2. găsește fereastra de sub cursor (`WindowFromPoint` + `GetAncestor(GA_ROOT)`);
-3. verifică dacă este fereastra activă, vizibilă și are `WS_MAXIMIZEBOX`;
-4. trimite `WM_NCHITTEST` cu coordonatele cursorului și verifică rezultatul `HTMAXBUTTON (9)`.
+1. reads the pointer position (`GetCursorPos`);
+2. finds the window under the pointer (`WindowFromPoint` + `GetAncestor(GA_ROOT)`);
+3. verifies that it is the foreground window, visible, and has `WS_MAXIMIZEBOX`;
+4. sends `WM_NCHITTEST` and checks for `HTMAXBUTTON (9)`.
 
-Funcționează atât când fereastra este restaurată (buton **Maximize**), cât și când este maximizată
-(buton **Restore Down**). În al doilea caz, fereastra este restaurată automat înainte de ancorare.
+If the window does not respond within 80 ms, a fallback region in the top-right corner is used.
+No global mouse hook is installed, so the input thread is not blocked.
 
-Dacă fereastra nu răspunde în 80 ms, se folosește o geometrie de rezervă în colțul din dreapta sus
-(al treilea buton de titlu). Astfel aplicația nu blochează firul de input și nu depinde de hook-uri
-globale de mouse.
+### Flyout
 
-### Afișarea meniului
+After 300 ms, the app computes the monitor work area (`MonitorFromPoint` + `GetMonitorInfo`) and
+the target DPI (`GetDpiForWindow`). The flyout is a borderless, rounded, topmost window with
+`WS_EX_NOACTIVATE`, so it does not steal focus. It opens below the Maximize button and flips above
+when there is not enough room.
 
-După 300 ms, se calculează aria de lucru a monitorului (`MonitorFromPoint` + `GetMonitorInfo`) și
-DPI-ul ferestrei (`GetDpiForWindow`). Meniul este un formular fără bordură, rotunjit, `TopMost` și
-`WS_EX_NOACTIVATE`, ca să nu fure focusul ferestrei țintă. Se afișează sub butonul Maximize, cu
-replasare deasupra dacă nu încape jos.
+Layout previews are drawn directly on the panel, without card backgrounds, with large rounded zones
+and a settings gear. The background uses a blurred screen capture with an acrylic-style tint.
 
-Machetele sunt desenate direct pe panou, fără carduri individuale, cu zone mari și rotunjite. În
-partea stângă există o rotiță care deschide setările. Fundalul este o captură blurată a ecranului
-din spate, peste care se aplică o tentă acrilică, apropiind aspectul de flyout-ul Windows 11.
-Detalii și surse: [`docs/ANALIZA-WINDOWS11.md`](docs/ANALIZA-WINDOWS11.md).
+### Snapping
 
-### Ancorarea
+For each zone, the app computes a physical-pixel rectangle, restores maximized/minimized windows,
+and calls `SetWindowPos`. The difference between `GetWindowRect` and
+`DWMWA_EXTENDED_FRAME_BOUNDS` is compensated so invisible borders do not produce uneven gaps.
 
-Pentru fiecare zonă se calculează un dreptunghi în coordonate fizice. Se restaurează fereastra dacă
-este maximizată/minimizată, apoi se aplică `SetWindowPos`. Diferența dintre `GetWindowRect` și
-`DWMWA_EXTENDED_FRAME_BOUNDS` este compensată, altfel ferestrele ar rămâne cu margini invizibile
-inegale. Spațiul dintre zone este împărțit simetric.
+### Visual Snap Assist
 
-### Snap Assist vizual, în zona liberă
+After the first snap, the selector opens **inside the remaining zone**. Each candidate window is
+shown as a separate floating preview with a shadow, over a blurred wallpaper background. Previews
+are rendered live with DWM (`DwmRegisterThumbnail` + `DwmUpdateThumbnailProperties`) and preserve
+window aspect ratios. Click a preview to snap it; `Esc` or a click outside cancels. Up to six
+windows are shown.
 
-După prima ancorare nu apare un panou cu listă. Selectorul se deschide **direct în următoarea zonă
-liberă** și afișează fereastra fiecărui candidat ca o **previzualizare plutitoare**, cu umbră, peste
-desktopul blurat. Este modelul vizual din Snap Assist-ul Windows 11.
+### Multiple monitors
 
-Previzualizările sunt randate de DWM (`DwmRegisterThumbnail` + `DwmUpdateThumbnailProperties`), deci
-sunt live și păstrează proporțiile ferestrelor. Nu există titlu de dialog, listă de rânduri sau
-carduri cu etichete; fereastra reală este elementul vizual. Un click pe o previzualizare o ancorează
-în acea zonă, apoi selectorul se mută automat în următoarea zonă liberă.
+The work area, DPI, and flyout placement are computed for the monitor under the cursor. Snapping
+uses the target monitor's work area. APIs such as `GetDpiForWindow` and `MonitorFromPoint` are
+per-monitor aware, and the manifest declares `PerMonitorV2`.
 
-Grilă se adaptează formei zonei: 2 × 3 pe o jumătate de ecran, 3 × 2 într-un cadran sau într-o zonă
-îngustă. Dacă previzualizarea live nu poate fi creată, se afișează iconița mare a aplicației.
-Sesiunea poate fi anulată cu `Esc` sau printr-un click în afara zonei. Până la șase ferestre sunt
-afișate simultan.
+## Build from source
 
-### Monitoare multiple
-
-Aria de lucru, DPI-ul și poziționarea meniului sunt calculate pentru monitorul de sub cursor, nu
-pentru monitorul primar. Ancorarea folosește tot aria monitorului țintă. Sunt folosite API-uri
-per-monitor (`GetDpiForWindow`, `MonitorFromPoint`), iar manifestul declară `PerMonitorV2`.
-
-## Compilare din sursă
-
-Necesită doar componentele incluse în Windows 10:
+Only components included in Windows 10 are required:
 
 - `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe`
-- .NET Framework 4.8 (inclus în Windows 10 22H2)
+- .NET Framework 4.8 (included in Windows 10 22H2)
 - Windows PowerShell 5.1
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
-Rezultatul este `dist\SnapLayouts10.exe`. Scriptul generează și iconița `assets\app.ico` dacă lipsește.
-Nu se descarcă nimic din rețea.
+Output: `dist\SnapLayouts10.exe`. The script also generates `assets\app.ico` if missing. Nothing is
+downloaded from the network.
 
-Teste geometrice automate:
+Automated geometry tests:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\test-geometry.ps1
 ```
 
-Pachete de release:
+Release packages:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\package.ps1
 ```
 
-CI-ul din `.github/workflows/build.yml` rulează build-ul, testele și pachetarea pe `windows-latest`.
-Workflow-ul `release.yml` publică automat release-ul la un tag `v*`. Instrucțiuni:
-[PUBLICARE-GITHUB.md](docs/PUBLICARE-GITHUB.md).
+CI (`.github/workflows/build.yml`) builds, tests, and packages on `windows-latest`.
+`.github/workflows/release.yml` publishes a release when a `v*` tag is pushed. See
+[PUBLISHING-GITHUB.md](docs/PUBLISHING-GITHUB.md).
 
-## Structura proiectului
+## Project structure
 
 ```
 SnapLayouts10/
 ├── .github/
-│   ├── workflows/             # build CI + release automat
+│   ├── workflows/             # build CI + automatic release
 │   ├── ISSUE_TEMPLATE/
 │   └── PULL_REQUEST_TEMPLATE.md
-├── build.ps1                  # compilare csc
-├── package.ps1                # pachete portable/sursă + SHA-256
+├── build.ps1                  # csc build
+├── package.ps1                # portable/source packages + SHA-256
 ├── README.md
 ├── LICENSE
 ├── NOTICE.md
@@ -226,89 +204,62 @@ SnapLayouts10/
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── assets/app.ico
-├── dist/                      # generat local, ignorat de Git
+├── dist/                      # generated locally, ignored by Git
 ├── docs/
-│   ├── TESTARE.md
-│   ├── COMPATIBILITATE.md
-│   ├── ANALIZA-WINDOWS11.md
-│   ├── PUBLICARE-GITHUB.md
-│   └── preview-flyout.png
-├── src/
-│   ├── Program.cs            # pornire, instanță unică, excepții
-│   ├── TrayApp.cs            # System Tray, meniu, sesiune Snap Assist
-│   ├── HoverWatcher.cs       # polling, detectare Maximize, poziționare meniu
-│   ├── SnapFlyout.cs         # meniul grafic cu șase machete
-│   ├── SnapEngine.cs         # calcule de zone, SetWindowPos, enumerare ferestre
-│   ├── SnapAssistForm.cs     # selector vizual cu previzualizări DWM
-│   ├── SettingsForm.cs       # setări, comutatoare, machete
-│   ├── Layouts.cs            # definițiile celor șase layout-uri
-│   ├── AppSettings.cs        # citire/scriere setări
-│   ├── AutoStart.cs          # HKCU Run
-│   ├── Native.cs             # P/Invoke
-│   ├── Theme.cs              # culori Windows 11, temă clară/întunecată
-│   ├── Util.cs               # DPI, dreptunghiuri, monitor
-│   ├── IconFactory.cs        # iconița din tray
-│   ├── Log.cs
-│   └── app.manifest          # PerMonitorV2, asInvoker
-└── tools/
-    ├── make-icon.ps1
-    └── test-geometry.ps1
+│   ├── TESTING.md
+│   ├── COMPATIBILITY.md
+│   ├── WINDOWS11-DESIGN.md
+│   ├── PUBLISHING-GITHUB.md
+│   ├── preview-flyout.png
+│   └── social-preview.png
+├── src/                       # application source
+└── tools/                     # icon generator + geometry tests
 ```
 
-## Testare
+## Testing
 
-Rezultatele și pașii sunt în [`docs/TESTARE.md`](docs/TESTARE.md). Testul geometric automat:
+See [TESTING.md](docs/TESTING.md). On the test machine:
 
-```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\test-geometry.ps1
-```
+- Maximize detection worked for Notepad and Chrome (`WM_NCHITTEST = 9`);
+- the flyout appeared after roughly 360–430 ms from the first detection tick;
+- snapping worked for 2 columns, 70/30, 3 columns, and 4 quadrants;
+- Snap Assist opened in the free zone with six floating live previews and snapped the selected
+  window;
+- settings, startup, and tray behavior were verified;
+- automated geometry tests pass for all six layouts and a simulated second monitor.
 
-Pe mașina de test:
+## Known limitations
 
-- detectarea butonului Maximize a funcționat pentru Notepad și Chrome (`WM_NCHITTEST = 9`);
-- meniul a apărut la ~360–430 ms de la primul tick care a identificat butonul;
-- ancorarea în 2 coloane, 70/30, 3 coloane și 4 cadrane a produs dreptunghiuri vizibile corecte;
-- Snap Assist s-a deschis direct în zona liberă, cu până la 6 previzualizări plutitoare live DWM
-  peste desktopul blurat, și a ancorat fereastra aleasă vizual în acea zonă;
-- setările, combo-urile dark, salvarea și iconița din tray au fost verificate;
-- activarea/dezactivarea pornirii automate a scris/șters corect valoarea din `HKCU\...\Run`.
+- Windows with fully custom title bars that do not return `HTMAXBUTTON` may not be detected.
+- Elevated applications may reject `SetWindowPos` from a normal-integrity process (UIPI). Run
+  SnapLayouts 10 as administrator if you need that.
+- Multi-monitor support is implemented with per-monitor APIs, but hardware testing used one
+  physical monitor.
+- Snap Assist shows up to six windows, selected by Z-order.
+- Preview rendering depends on DWM; if a thumbnail cannot be created, the app icon is shown.
+- The executable is **not code-signed**. SmartScreen may warn on first run. Verify the hash or build
+  from source.
+- Windows 7/8 are not supported; target is Windows 10 22H2 x64 (also runs on Windows 11).
 
-## Limitări cunoscute
+## Privacy
 
-- Ferestrele care nu răspund la `WM_NCHITTEST` cu `HTMAXBUTTON` și au titlu desenat complet custom
-  pot să nu fie detectate. Majoritatea aplicațiilor Windows (Notepad, Explorer, Chrome, Electron)
-  funcționează.
-- Ferestrele aplicațiilor rulate cu drepturi de administrator pot refuza mutarea dintr-un proces
-  normal (UIPI). Dacă aveți nevoie de ele, rulați SnapLayouts 10 ca administrator.
-- Testarea multi-monitor s-a făcut prin proiectare și API-uri per-monitor; pe mașina de test a
-  existat un singur monitor. Nu există dependențe de monitorul primar.
-- Snap Assist afișează maximum 6 ferestre, aranjate dinamic în zona liberă. Dacă sunt mai multe,
-  sunt luate primele șase în ordinea Z-order.
-- Previzualizările depind de DWM; pentru ferestrele care nu permit thumbnail DWM se afișează iconița
-  mare a aplicației.
-- Executabilul **nu este semnat digital**. Windows SmartScreen poate afișa un avertisment la prima
-  rulare. Verificați hash-ul din `SHA256SUMS.txt` sau compilați din sursă.
-- Nu funcționează pe Windows 7/8; este țintit Windows 10 22H2 x64 (și rulează și pe Windows 11).
-
-## Confidențialitate
-
-Aplicația nu are rețea, telemetrie sau actualizări automate. Scrie doar:
+The app has no network, telemetry, or auto-update. It writes only:
 
 - `%APPDATA%\SnapLayouts10\settings.ini`
 - `%APPDATA%\SnapLayouts10\snap.log`
-- opțional, la cerere, `HKCU\Software\Microsoft\Windows\CurrentVersion\Run\SnapLayouts10`
+- optionally, at your request, `HKCU\Software\Microsoft\Windows\CurrentVersion\Run\SnapLayouts10`
 
-Jurnalul poate conține titluri de ferestre. Înainte de a-l publica într-un issue, eliminați datele
-personale. Detalii: [SECURITY.md](SECURITY.md).
+The log may contain window titles when `--debug` is enabled. Remove sensitive data before sharing it.
+See [SECURITY.md](SECURITY.md).
 
-## Contribuții
+## Contributing
 
-Contribuțiile sunt binevenite. Citiți [CONTRIBUTING.md](CONTRIBUTING.md) și
-[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Pentru vulnerabilități, folosiți
-[SECURITY.md](SECURITY.md), nu un issue public.
+Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). For vulnerabilities, use [SECURITY.md](SECURITY.md), not
+a public issue.
 
-## Licență
+## License
 
 [MIT](LICENSE) © 2026 SnapLayouts 10 contributors.
 
-Proiect neoficial; consultați [NOTICE.md](NOTICE.md).
+Unofficial project; see [NOTICE.md](NOTICE.md).

@@ -25,11 +25,11 @@ namespace SnapLayouts10
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.ThreadException += delegate(object sender, ThreadExceptionEventArgs e)
             {
-                Log.Error("Excepție necontrolată pe firul UI.", e.Exception);
+                Log.Error("Unhandled exception on the UI thread.", e.Exception);
             };
             AppDomain.CurrentDomain.UnhandledException += delegate(object sender, UnhandledExceptionEventArgs e)
             {
-                Log.Error("Excepție necontrolată.", e.ExceptionObject as Exception);
+                Log.Error("Unhandled exception.", e.ExceptionObject as Exception);
             };
 
             bool createdNew;
@@ -38,7 +38,7 @@ namespace SnapLayouts10
                 if (!createdNew)
                 {
                     MessageBox.Show(
-                        "SnapLayouts 10 rulează deja. Căutați iconița din System Tray.",
+                        "SnapLayouts 10 is already running. Look for its icon in the system tray.",
                         "SnapLayouts 10",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -47,14 +47,14 @@ namespace SnapLayouts10
 
                 try
                 {
-                    Log.Info("=== Pornire SnapLayouts 10 v" + Util.VersionString() + " ===");
+                    Log.Info("=== SnapLayouts 10 v" + Util.VersionString() + " starting ===");
                     Application.Run(new TrayApp(openSettings));
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Aplicația s-a oprit din cauza unei erori.", ex);
+                    Log.Error("The application stopped because of an error.", ex);
                     MessageBox.Show(
-                        "SnapLayouts 10 a întâmpinat o eroare. Detalii în jurnalul din:\n" + Log.LogPath,
+                        "SnapLayouts 10 encountered an error. See the log file:\n" + Log.LogPath,
                         "SnapLayouts 10",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);

@@ -36,41 +36,41 @@ namespace SnapLayouts10
     {
         public static readonly LayoutDef[] All = new LayoutDef[]
         {
-            new LayoutDef(0, "2 coloane egale", "Împarte ecranul în două coloane egale.", new ZoneDef[]
+            new LayoutDef(0, "2 equal columns", "Two equal columns.", new ZoneDef[]
             {
-                new ZoneDef(0f, 0f, 0.5f, 1f, "Stânga"),
-                new ZoneDef(0.5f, 0f, 0.5f, 1f, "Dreapta")
+                new ZoneDef(0f, 0f, 0.5f, 1f, "Left"),
+                new ZoneDef(0.5f, 0f, 0.5f, 1f, "Right")
             }),
-            new LayoutDef(1, "2 coloane 70/30", "O coloană mare în stânga și una îngustă în dreapta.", new ZoneDef[]
+            new LayoutDef(1, "2 columns 70/30", "Wide left, narrow right.", new ZoneDef[]
             {
-                new ZoneDef(0f, 0f, 0.7f, 1f, "Stânga mare"),
-                new ZoneDef(0.7f, 0f, 0.3f, 1f, "Dreapta")
+                new ZoneDef(0f, 0f, 0.7f, 1f, "Large left"),
+                new ZoneDef(0.7f, 0f, 0.3f, 1f, "Right")
             }),
-            new LayoutDef(2, "3 coloane egale", "Trei coloane de lățimi egale.", new ZoneDef[]
+            new LayoutDef(2, "3 equal columns", "Three equal columns.", new ZoneDef[]
             {
-                new ZoneDef(0f, 0f, 1f / 3f, 1f, "Stânga"),
-                new ZoneDef(1f / 3f, 0f, 1f / 3f, 1f, "Centru"),
-                new ZoneDef(2f / 3f, 0f, 1f / 3f, 1f, "Dreapta")
+                new ZoneDef(0f, 0f, 1f / 3f, 1f, "Left"),
+                new ZoneDef(1f / 3f, 0f, 1f / 3f, 1f, "Center"),
+                new ZoneDef(2f / 3f, 0f, 1f / 3f, 1f, "Right")
             }),
-            new LayoutDef(3, "Stânga + 2 dreapta", "O zonă mare în stânga și două zone suprapuse în dreapta.", new ZoneDef[]
+            new LayoutDef(3, "Left + 2 right", "Large left, two right.", new ZoneDef[]
             {
-                new ZoneDef(0f, 0f, 0.5f, 1f, "Stânga"),
-                new ZoneDef(0.5f, 0f, 0.5f, 0.5f, "Dreapta sus"),
-                new ZoneDef(0.5f, 0.5f, 0.5f, 0.5f, "Dreapta jos")
+                new ZoneDef(0f, 0f, 0.5f, 1f, "Left"),
+                new ZoneDef(0.5f, 0f, 0.5f, 0.5f, "Right top"),
+                new ZoneDef(0.5f, 0.5f, 0.5f, 0.5f, "Right bottom")
             }),
-            new LayoutDef(4, "4 cadrane", "Patru zone egale, în grilă 2 x 2.", new ZoneDef[]
+            new LayoutDef(4, "4 quadrants", "Four equal zones.", new ZoneDef[]
             {
-                new ZoneDef(0f, 0f, 0.5f, 0.5f, "Stânga sus"),
-                new ZoneDef(0.5f, 0f, 0.5f, 0.5f, "Dreapta sus"),
-                new ZoneDef(0f, 0.5f, 0.5f, 0.5f, "Stânga jos"),
-                new ZoneDef(0.5f, 0.5f, 0.5f, 0.5f, "Dreapta jos")
+                new ZoneDef(0f, 0f, 0.5f, 0.5f, "Top left"),
+                new ZoneDef(0.5f, 0f, 0.5f, 0.5f, "Top right"),
+                new ZoneDef(0f, 0.5f, 0.5f, 0.5f, "Bottom left"),
+                new ZoneDef(0.5f, 0.5f, 0.5f, 0.5f, "Bottom right")
             }),
-            new LayoutDef(5, "Stânga mare + 3 dreapta", "O zonă lată în stânga și trei zone suprapuse în dreapta.", new ZoneDef[]
+            new LayoutDef(5, "Large left + 3 right", "Large left, three right.", new ZoneDef[]
             {
-                new ZoneDef(0f, 0f, 0.6f, 1f, "Stânga mare"),
-                new ZoneDef(0.6f, 0f, 0.4f, 1f / 3f, "Dreapta sus"),
-                new ZoneDef(0.6f, 1f / 3f, 0.4f, 1f / 3f, "Dreapta centru"),
-                new ZoneDef(0.6f, 2f / 3f, 0.4f, 1f / 3f, "Dreapta jos")
+                new ZoneDef(0f, 0f, 0.6f, 1f, "Large left"),
+                new ZoneDef(0.6f, 0f, 0.4f, 1f / 3f, "Right top"),
+                new ZoneDef(0.6f, 1f / 3f, 0.4f, 1f / 3f, "Right middle"),
+                new ZoneDef(0.6f, 2f / 3f, 0.4f, 1f / 3f, "Right bottom")
             })
         };
 

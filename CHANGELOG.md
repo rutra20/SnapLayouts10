@@ -1,51 +1,59 @@
 # Changelog
 
-Toate modificările notabile sunt documentate aici. Formatul urmează aproximativ
-[Keep a Changelog](https://keepachangelog.com/ro/1.1.0/), iar versiunile folosesc
+All notable changes are documented here. The format follows
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and versions use
 [Semantic Versioning](https://semver.org/).
+
+## [1.4.0] - 2026-11-10
+
+### Changed
+
+- Translated the application UI, runtime messages, documentation, issue templates, and metadata to
+  English.
+- Renamed documentation files to English names.
+- Updated screenshots and social preview for the English release.
 
 ## [1.3.0] - 2026-11-10
 
 ### Changed
 
-- Redesign vizual inspirat din capturile oficiale Windows 11.
-- Flyout fără carduri individuale: zone mari desenate direct pe panou, cu spații mai generoase.
-- Flyout mai aerisit, 2 × 3, cu rotiță de setări în rail-ul din stânga.
-- Fundal acrilic blurat pentru flyout.
-- Snap Assist fără panou/titlu/listă: ferestre-previzualizare plutitoare, cu umbră, peste desktopul
-  blurat.
-- Previzualizările Snap Assist rămân live prin DWM și păstrează proporțiile ferestrelor.
+- Visual redesign based on official Windows 11 reference material.
+- Flyout without individual cards: large zones drawn directly on the panel.
+- Roomier 2 × 3 flyout with a settings gear in the left rail.
+- Blurred acrylic-style flyout background.
+- Snap Assist without a panel, title, or list: floating window previews with shadows over a blurred
+  desktop.
+- Live DWM previews preserve each window's aspect ratio.
 
 ### Added
 
-- Documentație de analiză vizuală Windows 11.
-- Raport de compatibilitate.
-- Build CI, teste geometrice și pachet de release.
+- Visual design analysis of Windows 11.
+- Compatibility documentation.
+- CI build, geometry tests, and release packaging.
 
 ## [1.2.0] - 2026-11-10
 
 ### Changed
 
-- Snap Assist mutat în zona liberă, în locul unui panou centrat.
-- Grilă adaptivă de previzualizări live DWM.
+- Snap Assist moved into the free zone instead of a centered panel.
+- Adaptive grid of live DWM previews.
 
 ## [1.1.0] - 2026-11-10
 
 ### Added
 
-- Snap Assist vizual cu până la 6 ferestre, previzualizări live DWM și selectare vizuală.
+- Visual Snap Assist with up to six windows, live DWM previews, and visual selection.
 
 ## [1.0.1] - 2026-11-10
 
 ### Fixed
 
-- Meniul apare și când fereastra este maximizată (buton Restore Down); fereastra este restaurată
-  înainte de ancorare.
+- The menu now appears for maximized windows (Restore Down); the window is restored before snapping.
 
 ## [1.0.0] - 2026-11-10
 
 ### Added
 
-- Detectare Maximize prin `WM_NCHITTEST`.
-- Șase layout-uri, ancorare multi-monitor, Snap Assist, tray, setări și autostart.
-- Build fără dependențe externe, pentru Windows 10 22H2 x64.
+- Maximize detection via `WM_NCHITTEST`.
+- Six layouts, multi-monitor snapping, Snap Assist, tray, settings, and autostart.
+- Dependency-free build for Windows 10 22H2 x64.

@@ -27,7 +27,7 @@ namespace SnapLayouts10
             MaximizeBox = false;
             MinimizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SnapLayouts 10 — Setări";
+            Text = "SnapLayouts 10 — Settings";
             BackColor = Theme.Background;
             ForeColor = Theme.Text;
             ClientSize = new Size(620, 700);
@@ -75,34 +75,34 @@ namespace SnapLayouts10
             content.Controls.Add(title);
 
             Label subtitle = new Label();
-            subtitle.Text = "Meniul de aranjare apare când cursorul staționează pe butonul Maximize.";
+            subtitle.Text = "The layout menu appears when the pointer rests on the Maximize button.";
             subtitle.Font = Theme.FontPoints(9.25f, FontStyle.Regular);
             subtitle.ForeColor = Theme.SubText;
             subtitle.AutoSize = true;
             subtitle.Location = new Point(28, 52);
             content.Controls.Add(subtitle);
 
-            AddSection(content, "Comportament", 92);
-            _enabledSwitch = AddToggleRow(content, "Activează meniul Snap Layouts la hover", 126, _settings.Enabled);
-            _startupSwitch = AddToggleRow(content, "Pornește automat odată cu Windows", 164, _settings.StartWithWindows);
-            _assistSwitch = AddToggleRow(content, "Arată Snap Assist pentru zonele rămase", 202, _settings.SnapAssist);
+            AddSection(content, "Behavior", 92);
+            _enabledSwitch = AddToggleRow(content, "Enable Snap Layouts on hover", 126, _settings.Enabled);
+            _startupSwitch = AddToggleRow(content, "Start with Windows", 164, _settings.StartWithWindows);
+            _assistSwitch = AddToggleRow(content, "Show Snap Assist for remaining zones", 202, _settings.SnapAssist);
 
-            AddSection(content, "Afișare și spațiere", 250);
-            Label delayLabel = AddLabel(content, "Întârziere afișare meniu", 28, 284, 190);
+            AddSection(content, "Appearance and spacing", 250);
+            Label delayLabel = AddLabel(content, "Menu delay", 28, 284, 190);
             string[] delayItems = new string[_delays.Length];
             for (int i = 0; i < _delays.Length; i++)
                 delayItems[i] = _delays[i] + " ms";
             _delayCombo = AddChoice(content, 220, 280, 110, delayItems, ClosestIndex(_delays, _settings.HoverDelayMs));
 
-            Label gapLabel = AddLabel(content, "Spațiu între ferestre", 370, 284, 130);
+            Label gapLabel = AddLabel(content, "Window gap", 370, 284, 130);
             string[] gapItems = new string[_gaps.Length];
             for (int i = 0; i < _gaps.Length; i++)
                 gapItems[i] = _gaps[i] + " px";
             _gapCombo = AddChoice(content, 620 - 28 - 110, 280, 110, gapItems, ClosestIndex(_gaps, _settings.Gap));
 
-            AddSection(content, "Layout-uri active", 330);
+            AddSection(content, "Active layouts", 330);
             Label hint = AddLabel(content,
-                "Alegeți modelele care apar în meniu. Fiecare zonă poate primi o fereastră printr-un singur click.",
+                "Choose the layouts shown in the menu. Each zone accepts one window with a single click.",
                 28, 358, 560);
             hint.Font = Theme.FontPoints(8.75f, FontStyle.Regular);
             hint.ForeColor = Theme.SubText;
@@ -125,7 +125,7 @@ namespace SnapLayouts10
             }
 
             Label note = AddLabel(content,
-                "Setați cel puțin un layout activ. Toate setările sunt salvate local, în folderul de date al aplicației.",
+                "Keep at least one layout active. Settings are stored in the app data folder.",
                 28, 600, 560);
             note.Font = Theme.FontPoints(8.5f, FontStyle.Regular);
             note.ForeColor = Theme.SubText;
@@ -134,7 +134,7 @@ namespace SnapLayouts10
         private void BuildButtons(Panel bar)
         {
             LinkLabel dataLink = new LinkLabel();
-            dataLink.Text = "Deschide folderul de date";
+            dataLink.Text = "Open data folder";
             dataLink.AutoSize = true;
             dataLink.LinkColor = Theme.Accent;
             dataLink.ActiveLinkColor = Theme.AccentBorder;
@@ -149,13 +149,13 @@ namespace SnapLayouts10
                 }
                 catch (Exception ex)
                 {
-                    Log.Error("Nu am putut deschide folderul de date.", ex);
+                    Log.Error("Failed to open the data folder.", ex);
                 }
             };
             bar.Controls.Add(dataLink);
 
             Button cancel = new Button();
-            cancel.Text = "Anulează";
+            cancel.Text = "Cancel";
             cancel.FlatStyle = FlatStyle.Flat;
             cancel.FlatAppearance.BorderSize = 1;
             cancel.FlatAppearance.BorderColor = Theme.Border;
@@ -171,7 +171,7 @@ namespace SnapLayouts10
             bar.Controls.Add(cancel);
 
             Button save = new Button();
-            save.Text = "Salvează";
+            save.Text = "Save";
             save.FlatStyle = FlatStyle.Flat;
             save.FlatAppearance.BorderSize = 0;
             save.FlatAppearance.MouseOverBackColor = Theme.Lighten(Theme.Accent, 0.12f);
@@ -199,7 +199,7 @@ namespace SnapLayouts10
             if (enabledLayouts == 0)
             {
                 MessageBox.Show(this,
-                    "Activați cel puțin un model de aranjare.",
+                    "Enable at least one layout.",
                     "SnapLayouts 10",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);

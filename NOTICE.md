@@ -1,15 +1,15 @@
-# Notice și disclaimer
+# Notice and disclaimer
 
-**SnapLayouts 10 este un proiect neoficial și independent.**
+**SnapLayouts 10 is an independent, unofficial project.**
 
-- Nu este afiliat, sponsorizat, aprobat sau susținut de Microsoft Corporation.
-- „Windows”, „Windows 10”, „Windows 11”, „Snap Layouts”, „Snap Assist” și logo-urile Microsoft
-  sunt mărci comerciale ale Microsoft Corporation.
-- Proiectul reproduce **comportamentul** funcției Snap Layouts pentru Windows 10 și folosește
-  exclusiv API-uri publice Win32. Nu conține cod sursă, resurse sau fișiere Microsoft.
-- Numele este folosit doar pentru a descrie scopul utilitarului; nu sugerează statut oficial.
-- Capturile din documentație au fost realizate de autori pe o mașină de test, cu ferestre de test.
+- It is not affiliated with, sponsored by, approved by, or endorsed by Microsoft Corporation.
+- "Windows", "Windows 10", "Windows 11", "Snap Layouts", "Snap Assist", and Microsoft logos are
+  trademarks of Microsoft Corporation.
+- This project reproduces the **behavior** of the Windows 11 Snap Layouts feature on Windows 10
+  using public Win32 APIs. It contains no Microsoft source code, resources, or files.
+- The name is used only to describe the utility's purpose and does not imply official status.
+- Screenshots in this repository were captured by the authors on a test machine using test windows.
 
-## Licență
+## License
 
-Codul este distribuit sub licența MIT din fișierul [LICENSE](LICENSE).
+The code is distributed under the MIT license in [LICENSE](LICENSE).

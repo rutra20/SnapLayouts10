@@ -1,30 +1,30 @@
-## Ce schimbă acest PR?
+## What does this PR change?
 
-<!-- Descriere scurtă. -->
+<!-- Short description. -->
 
-## Tip
+## Type
 
-- [ ] Corectură de bug
-- [ ] Funcționalitate nouă
-- [ ] Documentație
-- [ ] Refactor / mentenanță
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Documentation
+- [ ] Refactor / maintenance
 
-## Cum a fost testat?
+## How was it tested?
 
-- [ ] `build.ps1` compilează fără erori
-- [ ] `tools/test-geometry.ps1` trece
-- [ ] Test manual pe Windows 10 22H2
-- [ ] Am verificat ferestre restaurate și maximizate
+- [ ] `build.ps1` compiles without errors
+- [ ] `tools/test-geometry.ps1` passes
+- [ ] Manual testing on Windows 10 22H2
+- [ ] Checked both restored and maximized windows
 
-Aplicații testate:
+Applications tested:
 
-## Capturi / jurnal
+## Screenshots / logs
 
-<!-- Fără date personale. -->
+<!-- No personal data. -->
 
 ## Checklist
 
-- [ ] Codul păstrează compatibilitatea C# 5 (compilatorul .NET Framework).
-- [ ] Nu am adăugat dependențe externe sau binare terțe.
-- [ ] Am actualizat documentația dacă e nevoie.
-- [ ] Am citit CONTRIBUTING.md.
+- [ ] The code keeps C# 5 compatibility (the .NET Framework compiler).
+- [ ] No external dependencies or third-party binaries were added.
+- [ ] Documentation was updated if needed.
+- [ ] I read CONTRIBUTING.md.

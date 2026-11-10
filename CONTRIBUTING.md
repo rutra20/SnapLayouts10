@@ -1,13 +1,14 @@
-# Contribuții
+# Contributing
 
-Mulțumesc pentru interes. Proiectul este mic și își propune să rămână ușor, fără dependențe externe.
+Thanks for your interest. This project is small and aims to stay lightweight with no external
+dependencies.
 
-## Cerințe
+## Requirements
 
-- Windows 10 22H2 x64 (sau Windows 11 pentru testare secundară)
-- .NET Framework 4.8 (inclus în Windows 10)
-- PowerShell 5.1
-- Opțional: Git și un editor C#
+- Windows 10 22H2 x64 (or Windows 11 for secondary testing)
+- .NET Framework 4.8 (included in Windows 10)
+- Windows PowerShell 5.1
+- Optional: Git and a C# editor
 
 ## Build
 
@@ -15,47 +16,46 @@ Mulțumesc pentru interes. Proiectul este mic și își propune să rămână u�
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
-Teste geometrice:
+Geometry tests:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\test-geometry.ps1
 ```
 
-Pachete de release:
+Release packages:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\package.ps1
 ```
 
-## Reguli de cod
+## Code rules
 
-- Codul trebuie să compileze cu **C# 5** și `csc.exe` din .NET Framework 4.8; nu folosiți
-  funcționalități C# 6+ (string interpolation, `?.`, `nameof`, tuples, local functions etc.).
-- Nu adăugați pachete NuGet, DLL-uri terțe sau componente care necesită instalare.
-- P/Invoke-urile se adaugă în `src/Native.cs`, cu comentarii pentru constante.
-- Orice apel către alt proces trebuie să aibă timeout sau fallback; aplicația nu trebuie să
-  blocheze firul UI.
-- Păstrați compatibilitatea cu ferestre restaurate și maximizate.
-- Nu includeți date personale, capturi cu conținut sensibil sau jurnale reale în commit-uri.
+- Code must compile with **C# 5** and the .NET Framework 4.8 `csc.exe`; do not use C# 6+ features
+  (string interpolation, `?.`, `nameof`, tuples, local functions, etc.).
+- Do not add NuGet packages, third-party DLLs, or components that require installation.
+- Add P/Invoke declarations to `src/Native.cs` with comments for constants.
+- Every cross-process call must have a timeout or fallback; the app must not block the UI thread.
+- Keep compatibility with both restored and maximized windows.
+- Do not commit personal data, screenshots with sensitive content, or real logs.
 
-## Testare manuală minimă
+## Minimum manual testing
 
-Înainte de PR:
+Before a PR:
 
-1. Notepad restaurat: hover pe Maximize → flyout → alege o zonă.
-2. Notepad maximizat: hover pe Restore Down → flyout → alege o zonă.
-3. Un layout cu 3 și unul cu 4 zone.
-4. Snap Assist: alege o previzualizare; `Esc` și click în afara selectorului.
-5. Setări: schimbă întârzierea, spațierea, un layout; salvează; verifică flyout-ul.
-6. Tray: activare/dezactivare și ieșire.
+1. Restored Notepad: hover Maximize → flyout → choose a zone.
+2. Maximized Notepad: hover Restore Down → flyout → choose a zone.
+3. One 3-zone and one 4-zone layout.
+4. Snap Assist: choose a preview; test `Esc` and click outside.
+5. Settings: change delay, gap, and one layout; save; verify the flyout.
+6. Tray: enable/disable and exit.
 
-## Commit-uri și PR-uri
+## Commits and pull requests
 
-- Mesaje scurte, la timp prezent: `fix: ...`, `feat: ...`, `docs: ...`.
-- Un PR = o schimbare logică.
-- Completați template-ul de PR și spuneți ce aplicații ați testat.
-- Pentru schimbări vizuale, atașați capturi înainte/după (fără date personale).
+- Use short, present-tense messages: `fix: ...`, `feat: ...`, `docs: ...`.
+- One PR = one logical change.
+- Complete the pull request template and list the applications you tested.
+- For visual changes, attach before/after screenshots without personal data.
 
-## Licență
+## License
 
-Prin contribuție acceptați ca modificările să fie distribuite sub licența MIT a proiectului.
+By contributing, you agree that your changes are distributed under the project's MIT license.

@@ -1,31 +1,31 @@
-name: Propunere de funcționalitate
-description: Sugerează o îmbunătățire.
+name: Feature request
+description: Suggest an improvement.
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
   - type: textarea
     id: problem
     attributes:
-      label: Ce problemă rezolvă?
-      placeholder: "Mă deranjează că..."
+      label: What problem does it solve?
+      placeholder: "I find it frustrating that..."
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: Soluția propusă
+      label: Proposed solution
     validations:
       required: true
   - type: textarea
     id: alternatives
     attributes:
-      label: Alternative luate în calcul
+      label: Alternatives considered
   - type: checkboxes
     id: scope
     attributes:
-      label: Confirmare
+      label: Confirmation
       options:
-        - label: Funcția nu există deja în ultima versiune.
+        - label: This feature does not already exist in the latest version.
           required: true
-        - label: Propunerea respectă cerința de a nu folosi PowerToys/FancyZones.
+        - label: The proposal respects the requirement to avoid PowerToys/FancyZones.
           required: false

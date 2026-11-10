@@ -105,21 +105,21 @@ namespace SnapLayouts10
 
                 if (!moved)
                 {
-                    Log.Info("SetWindowPos a eșuat pentru hwnd=" + hwnd.ToInt64() + ".");
+                    Log.Info("SetWindowPos failed for hwnd=" + hwnd.ToInt64() + ".");
                     return false;
                 }
 
                 Native.SetForegroundWindow(hwnd);
                 placedRect = visible;
                 Log.Info(string.Format(
-                    "Fereastră ancorată: hwnd={0}, layout={1}, zona={2}, rect={3},{4},{5},{6}",
+                    "Window snapped: hwnd={0}, layout={1}, zone={2}, rect={3},{4},{5},{6}",
                     hwnd.ToInt64(), layout.Name, layout.Zones[zoneIndex].Name,
                     visible.Left, visible.Top, visible.Width, visible.Height));
                 return true;
             }
             catch (Exception ex)
             {
-                Log.Error("Eroare la ancorarea ferestrei.", ex);
+                Log.Error("Failed to snap the window.", ex);
                 return false;
             }
         }

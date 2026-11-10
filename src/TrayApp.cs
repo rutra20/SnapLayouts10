@@ -41,7 +41,7 @@ namespace SnapLayouts10
             _trayIcon = IconFactory.CreateAppIcon(32);
             _tray = new NotifyIcon();
             _tray.Icon = _trayIcon;
-            _tray.Text = "SnapLayouts 10 — hover pe Maximize";
+            _tray.Text = "SnapLayouts 10 — hover Maximize";
             _tray.Visible = true;
             _tray.DoubleClick += delegate { OpenSettings(); };
 
@@ -56,11 +56,11 @@ namespace SnapLayouts10
             _startupItem = CreateMenuItem(string.Empty, delegate { ToggleStartup(); });
             _menu.Items.Add(_startupItem);
             _menu.Items.Add(new ToolStripSeparator());
-            _menu.Items.Add(CreateMenuItem("Setări...", delegate { OpenSettings(); }));
-            _menu.Items.Add(CreateMenuItem("Despre SnapLayouts 10", delegate { ShowAbout(); }));
-            _menu.Items.Add(CreateMenuItem("Deschide folderul de date", delegate { OpenDataFolder(); }));
+            _menu.Items.Add(CreateMenuItem("Settings...", delegate { OpenSettings(); }));
+            _menu.Items.Add(CreateMenuItem("About SnapLayouts 10", delegate { ShowAbout(); }));
+            _menu.Items.Add(CreateMenuItem("Open data folder", delegate { OpenDataFolder(); }));
             _menu.Items.Add(new ToolStripSeparator());
-            _menu.Items.Add(CreateMenuItem("Ieșire", delegate { ExitApp(); }));
+            _menu.Items.Add(CreateMenuItem("Exit", delegate { ExitApp(); }));
             _tray.ContextMenuStrip = _menu;
 
             _watcher = new HoverWatcher(_settings);
@@ -78,7 +78,7 @@ namespace SnapLayouts10
                     _tray.ShowBalloonTip(
                         6000,
                         "SnapLayouts 10",
-                        "Ține cursorul aproximativ 300 ms pe butonul Maximize al unei ferestre, apoi alege o zonă.",
+                        "Rest the pointer on a window's Maximize button for about 300 ms, then choose a zone.",
                         ToolTipIcon.Info);
                 }
             };
@@ -103,8 +103,8 @@ namespace SnapLayouts10
                 _settings.Save();
             }
 
-            Log.Info("SnapLayouts 10 v" + Util.VersionString() + " pornit. Enabled=" + _settings.Enabled +
-                     ", delay=" + _settings.HoverDelayMs + "ms, gap=" + _settings.Gap + "px, layout-uri=" +
+            Log.Info("SnapLayouts 10 v" + Util.VersionString() + " started. Enabled=" + _settings.Enabled +
+                     ", delay=" + _settings.HoverDelayMs + "ms, gap=" + _settings.Gap + "px, layouts=" +
                      _settings.EnabledLayoutCount + ", debug=" + Log.DebugEnabled + ".");
         }
 
@@ -119,8 +119,8 @@ namespace SnapLayouts10
 
         private void UpdateMenuText()
         {
-            _statusItem.Text = _settings.Enabled ? "Snap Layouts: activ" : "Snap Layouts: dezactivat";
-            _startupItem.Text = _settings.StartWithWindows ? "Pornește cu Windows: da" : "Pornește cu Windows: nu";
+            _statusItem.Text = _settings.Enabled ? "Snap Layouts: enabled" : "Snap Layouts: disabled";
+            _startupItem.Text = _settings.StartWithWindows ? "Start with Windows: yes" : "Start with Windows: no";
         }
 
         private void ToggleEnabled()
@@ -139,7 +139,7 @@ namespace SnapLayouts10
             if (!AutoStart.SetEnabled(target))
             {
                 MessageBox.Show(
-                    "Nu am putut modifica pornirea automată. Încercați din nou.",
+                    "Could not update automatic startup. Please try again.",
                     "SnapLayouts 10",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -182,7 +182,7 @@ namespace SnapLayouts10
                 if (!startupOk)
                 {
                     MessageBox.Show(
-                        "Setările au fost salvate, dar pornirea automată nu a putut fi configurată.",
+                        "Settings were saved, but automatic startup could not be configured.",
                         "SnapLayouts 10",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
@@ -194,15 +194,15 @@ namespace SnapLayouts10
         {
             string text =
                 "SnapLayouts 10  v" + Util.VersionString() + Environment.NewLine +
-                "Snap Layouts pentru Windows 10" + Environment.NewLine + Environment.NewLine +
-                "Țineți cursorul aproximativ " + _settings.HoverDelayMs + " ms pe butonul Maximize " +
-                "al ferestrei active, apoi faceți click pe zona dorită." + Environment.NewLine + Environment.NewLine +
-                "• șase modele de aranjare, cu 2, 3 sau 4 zone" + Environment.NewLine +
-                "• funcționează pe mai multe monitoare" + Environment.NewLine +
-                "• Snap Assist completează automat zonele rămase" + Environment.NewLine +
-                "• rulare în System Tray și pornire automată opțională" + Environment.NewLine + Environment.NewLine +
-                "Date și jurnal: " + Log.DataDirectory;
-            MessageBox.Show(text, "Despre SnapLayouts 10", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                "Snap Layouts for Windows 10" + Environment.NewLine + Environment.NewLine +
+                "Rest the pointer for about " + _settings.HoverDelayMs + " ms on the Maximize button " +
+                "of the active window, then click the desired zone." + Environment.NewLine + Environment.NewLine +
+                "• six layouts with 2, 3 or 4 zones" + Environment.NewLine +
+                "• works across multiple monitors" + Environment.NewLine +
+                "• Snap Assist fills the remaining zones" + Environment.NewLine +
+                "• System Tray app with optional startup" + Environment.NewLine + Environment.NewLine +
+                "Data and log: " + Log.DataDirectory;
+            MessageBox.Show(text, "About SnapLayouts 10", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void OpenDataFolder()
@@ -213,7 +213,7 @@ namespace SnapLayouts10
             }
             catch (Exception ex)
             {
-                Log.Error("Nu am putut deschide folderul de date.", ex);
+                Log.Error("Failed to open the data folder.", ex);
             }
         }
 
@@ -226,7 +226,7 @@ namespace SnapLayouts10
             Rectangle placed;
             if (!SnapEngine.SnapWindow(e.TargetWindow, e.Layout, e.ZoneIndex, e.WorkArea, e.Gap, out placed))
             {
-                Log.Info("Ancorarea ferestrei țintă a eșuat.");
+                Log.Info("Failed to snap the target window.");
                 return;
             }
 
@@ -269,11 +269,11 @@ namespace SnapLayouts10
                     filled++;
 
             string subtitle = string.Format(
-                "Zona „{0}” · {1} din {2} zone completate",
+                "Zone \"{0}\" · {1} of {2} zones filled",
                 _sessionLayout.Zones[zoneIndex].Name,
                 filled,
                 _sessionLayout.Zones.Length);
-            string hint = "Click pe o fereastră · Esc anulează";
+            string hint = "Click a window · Esc to cancel";
 
             Rectangle zoneRect = SnapEngine.CalculateZoneRect(
                 _sessionLayout, zoneIndex, _sessionWorkArea, _sessionGap);
@@ -302,7 +302,7 @@ namespace SnapLayouts10
                 return;
             }
 
-            Log.Info("Snap Assist: fereastră aleasă hwnd=" + e.Window.Handle.ToInt64() + " title=\"" + e.Window.Title + "\".");
+            Log.Info("Snap Assist: selected window hwnd=" + e.Window.Handle.ToInt64() + " title=\"" + e.Window.Title + "\".");
             Rectangle placed;
             if (SnapEngine.SnapWindow(e.Window.Handle, _sessionLayout, zoneIndex, _sessionWorkArea, _sessionGap, out placed))
             {
@@ -311,7 +311,7 @@ namespace SnapLayouts10
             }
             else
             {
-                Log.Info("Ancorarea ferestrei din Snap Assist a eșuat.");
+                Log.Info("Failed to snap the window chosen from Snap Assist.");
                 ClearSession();
                 return;
             }
@@ -389,7 +389,7 @@ namespace SnapLayouts10
             _menu.Dispose();
             _firstRunTimer.Stop();
             _firstRunTimer.Dispose();
-            Log.Info("SnapLayouts 10 oprit.");
+            Log.Info("SnapLayouts 10 stopped.");
             ExitThread();
         }
     }

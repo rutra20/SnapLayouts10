@@ -105,7 +105,7 @@ namespace SnapLayouts10
                 _candidate = hwnd;
                 _candidateSince = now;
                 _candidatePoint = point;
-                Log.Debug("Candidat Maximize: hwnd=" + hwnd.ToInt64() + " " + detail);
+                Log.Debug("Maximize candidate: hwnd=" + hwnd.ToInt64() + " " + detail);
                 return;
             }
 
@@ -188,7 +188,7 @@ namespace SnapLayouts10
                 if (diagnostic != _lastDiagnostic)
                 {
                     _lastDiagnostic = diagnostic;
-                    Log.Debug("Buton Maximize detectat (WM_NCHITTEST): hwnd=" + detail);
+                    Log.Debug("Maximize button detected (WM_NCHITTEST): hwnd=" + detail);
                 }
                 return true;
             }
@@ -203,7 +203,7 @@ namespace SnapLayouts10
                     if (diagnostic != _lastDiagnostic)
                     {
                         _lastDiagnostic = diagnostic;
-                        Log.Debug("Buton Maximize detectat (geometrie de rezervă): hwnd=" + detail);
+                        Log.Debug("Maximize button detected (fallback geometry): hwnd=" + detail);
                     }
                 }
                 return fallback;
@@ -272,7 +272,7 @@ namespace SnapLayouts10
             _outsideSince = 0;
             _flyout.ShowAt(x, y, dpi, hwnd);
             Log.Info(string.Format(
-                "Flyout afișat: hwnd={0}, dpi={1}, poziție={2},{3}, dimensiune={4}x{5}, cursor={6},{7}",
+                "Flyout shown: hwnd={0}, dpi={1}, position={2},{3}, size={4}x{5}, cursor={6},{7}",
                 hwnd.ToInt64(), dpi, x, y, size.Width, size.Height, point.X, point.Y));
         }
 

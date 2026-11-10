@@ -12,7 +12,7 @@ $exe = Join-Path $dist 'SnapLayouts10.exe'
 
 $csc = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 if (-not (Test-Path $csc)) {
-    throw "Nu găsesc compilatorul C# .NET Framework: $csc"
+    throw "C# .NET Framework compiler not found: $csc"
 }
 
 if (-not (Test-Path $icon) -and -not $NoIcon) {
@@ -52,12 +52,12 @@ foreach ($reference in $references) {
 }
 $arguments += $sources
 
-Write-Host 'Compilare SnapLayouts10.exe...'
+Write-Host 'Building SnapLayouts10.exe...'
 & $csc $arguments
 if ($LASTEXITCODE -ne 0) {
-    throw "Compilarea a eșuat (exit code $LASTEXITCODE)."
+    throw "Build failed (exit code $LASTEXITCODE)."
 }
 
 $info = Get-Item $exe
 Write-Host ("OK: {0} ({1:N0} bytes)" -f $info.FullName, $info.Length)
-Write-Host ("Versiune: {0}" -f $info.VersionInfo.FileVersion)
+Write-Host ("Version: {0}" -f $info.VersionInfo.FileVersion)

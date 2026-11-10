@@ -10,19 +10,19 @@ $src = Join-Path $root 'src'
 if (-not $SkipBuild) {
     & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $root 'build.ps1')
     if ($LASTEXITCODE -ne 0) {
-        throw "Compilarea a eșuat."
+        throw "Build failed."
     }
 }
 
 $exe = Join-Path $dist 'SnapLayouts10.exe'
 if (-not (Test-Path $exe)) {
-    throw "Nu există $exe. Rulați mai întâi build.ps1."
+    throw "$exe does not exist. Run build.ps1 first."
 }
 
 $assemblyInfo = Get-Content (Join-Path $src 'AssemblyInfo.cs') -Raw
 $match = [regex]::Match($assemblyInfo, 'AssemblyVersion\("([0-9]+\.[0-9]+\.[0-9]+)')
 if (-not $match.Success) {
-    throw "Nu pot determina versiunea din AssemblyInfo.cs."
+    throw "Could not determine the version from AssemblyInfo.cs."
 }
 $version = $match.Groups[1].Value
 $portable = Join-Path $dist ("SnapLayouts10-{0}-portable.zip" -f $version)
@@ -68,10 +68,10 @@ try {
     }
     $hashes | Set-Content (Join-Path $dist 'SHA256SUMS.txt') -Encoding ASCII
 
-    Write-Host ("Versiune: {0}" -f $version)
+    Write-Host ("Version: {0}" -f $version)
     Get-ChildItem $dist -File | Where-Object { $_.Name -in $files -or $_.Name -eq 'SHA256SUMS.txt' } |
         Select-Object Name, Length | Format-Table -AutoSize
-    Write-Host "Pachete create în $dist"
+    Write-Host "Packages created in $dist"
 }
 finally {
     Remove-Item $portableStage, $sourceStage -Recurse -Force -ErrorAction SilentlyContinue
